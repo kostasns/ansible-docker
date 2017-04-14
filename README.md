@@ -1,6 +1,5 @@
 ## Supported tags and respective `Dockerfile` links
 - [`centos` (*centos-epel/Dockerfile*)](https://github.com/kostasns/ansible-docker/blob/master/centos-epel/Dockerfile)
-- [`alpine` (*alpine/Dockerfile*)](https://github.com/kostasns/ansible-docker/blob/master/alpine/Dockerfile)
 
 ## How to use this image
 ### Launching the container
