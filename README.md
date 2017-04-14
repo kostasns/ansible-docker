@@ -8,6 +8,12 @@
 $ docker run -it --rm -v $(pwd):/ansible kostasns/ansible:**<tag>** <ansible_command>
 ```
 
+#### With common roles
+More info on [roles path variable](http://docs.ansible.com/ansible/intro_configuration.html#roles-path) 
+```
+docker run -it --rm -v $(pwd):/ansible -v *local_roles_path*:/ansible/common_roles kostasns/ansible:**<tag>** <ansible_command> 
+```
+
 ### Using aliases
 #### Bash/Git
 ```
@@ -22,3 +28,6 @@ function ansible { & docker run -it --rm -v "$(pwd):/ansible" "kostasns/ansible:
 function ansible-playbook { & docker run -it --rm -v "$(pwd):/ansible" "kostasns/ansible:**<tag>**" ansible-playbook }
 function ansible-vault { & docker run -it --rm -v "$(pwd):/ansible" "kostasns/ansible:**<tag>**" ansible-vault }
 ```
+
+### CoreOS Bootstrap
+Container comes with [coreos-bootstrap](https://github.com/defunctzombie/ansible-coreos-bootstrap) installed
