@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:latest
 
 LABEL maintainer="kostas@nuclearshoebox.com" \
 	  build-date="2016-02-17" \
@@ -14,11 +14,14 @@ ENV ANSIBLE_DIR /ansible
 RUN yum install -y epel-release && \ 
     yum install -y \ 
 	   ansible \
-	   sudo && \
+	   sudo \
+	   python-netaddr && \
     yum clean all && \
 	rm -rf /var/cache/yum/* && \
     mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg.org && \
 	mkdir -p ${ANSIBLE_DIR}	
+	
+RUN ansible-galaxy install defunctzombie.coreos-bootstrap
 
 COPY ansible.cfg /etc/ansible/
 WORKDIR ${ANSIBLE_DIR}
